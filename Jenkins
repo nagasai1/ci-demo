@@ -4,9 +4,9 @@ node {
       // Get some code from a GitHub repository
       git 'https://github.com/mahendra-shinde/ci-demo.git'
       // Get the Maven tool.
-      // ** NOTE: This 'M3' Maven tool must be configured
+      // ** NOTE: This 'M2' Maven tool must be configured
       // **       in the global configuration.           
-      mvnHome = tool 'Maven3'
+      mvnHome = tool 'M2'
    }
    stage('Build') {
       // Run the maven build
@@ -18,6 +18,6 @@ node {
    }
    stage('Results') {
       
-      archive 'ROOT.war'
+      archiveArtifacts 'DemoApp/target/*.war'
    }
 }
